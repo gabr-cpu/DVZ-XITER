@@ -3,110 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DVZ - O Melhor do Brasil</title>
+    <title>DVZ - Oficial</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        body {
-            background-color: #0a0a0a;
+        body, html {
+            height: 100%;
+            background-color: #000;
+            overflow: hidden;
             color: white;
-            overflow-x: hidden;
         }
 
-        /* Primeira Parte: Sua Imagem ocupando a tela inteira */
-        .hero-section {
-            height: 100vh;
+        /* Fundo com a sua imagem */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
+            height: 100%;
             background: url('https://straightforward-coffee-37zs237u1w.edgeone.app/dvz.png') no-repeat center center;
-            background-size: contain; /* Mantém a imagem inteira sem cortar os textos dela */
-            background-attachment: fixed; /* Efeito Parallax */
+            background-size: contain;
+            z-index: 1;
         }
 
-        /* Segunda Parte: O Convite */
-        .invite-section {
-            height: 60vh;
+        /* Camada de transparência/escurecimento */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Ajuste o 0.4 para mais ou menos transparência */
+            z-index: 2;
+        }
+
+        /* Container de Conteúdo */
+        .content-container {
+            position: relative;
+            z-index: 3;
+            height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
+            padding-bottom: 80px;
             text-align: center;
-            background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
-            padding: 20px;
-            border-top: 2px solid #5865F2;
         }
 
-        .invite-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        /* Telas */
+        .step {
+            transition: all 0.5s ease;
+            width: 90%;
+            max-width: 500px;
         }
 
-        .invite-section p {
-            font-size: 1.3rem;
-            color: #b9bbbe;
-            margin-bottom: 30px;
+        .hidden {
+            display: none;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
-        /* Botão Estilizado */
-        .btn-discord {
-            background-color: #5865F2;
-            color: white;
-            text-decoration: none;
-            padding: 20px 50px;
-            font-size: 1.5rem;
+        /* Botões */
+        .btn {
+            display: inline-block;
+            padding: 18px 45px;
+            font-size: 1.2rem;
             font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
             border-radius: 10px;
-            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .btn-next {
+            background: white;
+            color: black;
+        }
+
+        .btn-discord {
+            background: #5865F2;
+            color: white;
             box-shadow: 0 0 20px rgba(88, 101, 242, 0.5);
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
-        .btn-discord:hover {
-            background-color: #4752c4;
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(88, 101, 242, 0.8);
+        .btn:hover {
+            transform: scale(1.05);
+            filter: brightness(0.9);
         }
 
-        /* Animação simples */
-        .pulse {
-            animation: pulse-animation 2s infinite;
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
         }
 
-        @keyframes pulse-animation {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: #ddd;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
         }
 
-        @media (max-width: 768px) {
-            .hero-section {
-                background-size: cover; /* No celular, cobre a tela pra não sobrar espaço */
-            }
-            .invite-section h2 { font-size: 1.8rem; }
+        /* Animação simples de fade-in */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s forwards;
         }
     </style>
 </head>
 <body>
 
-    <div class="hero-section"></div>
+    <div class="background"></div>
+    <div class="overlay"></div>
 
-    <div class="invite-section">
-        <h2>E aí, o que achou?</h2>
-        <p>Vem, entra pro melhor grupo de xit do Brasil!</p>
+    <div class="content-container">
         
-        <a href="https://discord.gg/5Q2qqr8vQy" class="btn-discord pulse">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.06.06 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.086 2.157 2.419c0 1.334-.947 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.086 2.157 2.419c0 1.334-.946 2.419-2.157 2.419z"/></svg>
-            ENTRAR AGORA
-        </a>
+        <div id="step1" class="step">
+            <button class="btn btn-next" onclick="goStep2()">AVANÇAR PARA O SERVIDOR</button>
+        </div>
+
+        <div id="step2" class="step hidden">
+            <h2>E aí, o que achou?</h2>
+            <p>Vem, entra pro melhor grupo de xit do Brasil!</p>
+            <a href="https://discord.gg/5Q2qqr8vQy" class="btn btn-discord">ENTRAR AGORA</a>
+        </div>
+
     </div>
+
+    <script>
+        function goStep2() {
+            // Esconde a primeira parte com animação
+            const s1 = document.getElementById('step1');
+            const s2 = document.getElementById('step2');
+            
+            s1.style.opacity = '0';
+            
+            setTimeout(() => {
+                s1.classList.add('hidden');
+                s2.classList.remove('hidden');
+                s2.classList.add('fade-in');
+                
+                // Opcional: Aumentar o desfoque do fundo ao chegar na parte final
+                document.querySelector('.overlay').style.background = "rgba(0, 0, 0, 0.7)";
+                document.querySelector('.overlay').style.backdropFilter = "blur(10px)";
+            }, 400);
+        }
+    </script>
 
 </body>
 </html>
