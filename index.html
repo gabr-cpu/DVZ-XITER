@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite Discord</title>
+    <style>
+        /* Estilização Geral */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            /* Substitua 'fundo.jpg' pelo caminho da sua imagem */
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('fundo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        /* Container Principal com Transparência */
+        .glass-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #7289da; /* Cor clássica do Discord */
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .cta-section h2 {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        /* Botão de Convite */
+        .btn-discord {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 15px 40px;
+            background-color: #5865F2;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            transition: transform 0.3s, background-color 0.3s;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+        }
+
+        .btn-discord:hover {
+            background-color: #4752c4;
+            transform: scale(1.05);
+        }
+
+        /* Divisor visual */
+        hr {
+            border: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.2);
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass-container">
+        <section class="info">
+            <h1>Nosso Servidor</h1>
+            <p>
+                Bem-vindo à nossa comunidade! Aqui você encontra o melhor suporte, 
+                atualizações constantes e uma galera focada em alto desempenho. 
+                Nosso servidor foi estruturado para oferecer a melhor experiência possível.
+            </p>
+        </section>
+
+        <hr>
+
+        <section class="cta-section">
+            <h2>E aí, o que achou?</h2>
+            <p>Vem, entra pro melhor grupo de xit do Brasil!</p>
+            
+            <a href="https://discord.gg/5Q2qqr8vQy" class="btn-discord">
+                ENTRAR NO DISCORD AGORA
+            </a>
+        </section>
+    </div>
+
+</body>
+</html>
